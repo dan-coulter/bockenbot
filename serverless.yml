@@ -63,6 +63,8 @@ provider:
 functions:
     postBocken:
         handler: handler.postBocken
+        environment:
+            DISCORD_WEBHOOK: ${env:DISCORD_WEBHOOK}
         events:
             - schedule: cron(1 2/6 * * ? *)
 #    The following are a few example events you can configure
