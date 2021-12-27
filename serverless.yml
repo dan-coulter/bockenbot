@@ -2,15 +2,15 @@ service: bockenbot
 frameworkVersion: '2'
 
 provider:
-    name: aws
-    runtime: nodejs14.x
-    lambdaHashingVersion: 20201221
-    region: ${env:AWS_REGION}
+  name: aws
+  runtime: nodejs14.x
+  lambdaHashingVersion: 20201221
+  region: ${env:AWS_REGION}
 
 functions:
-    postBocken:
-        handler: handler.postBocken
-        environment:
-            DISCORD_WEBHOOK: ${env:DISCORD_WEBHOOK}
-        events:
-            - schedule: cron(0 2/6 * * ? *)
+  postBocken:
+    handler: handler.postBocken
+    environment:
+      DISCORD_WEBHOOK: ${env:DISCORD_WEBHOOK}
+    # events:
+    # - schedule: cron(0 2/6 * * ? *)
